@@ -1,7 +1,6 @@
+import java.awt.FlowLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import java.awt.FlowLayout;
-import java.awt.Color;
 
 public class TestePinos {
     public static void main(String[] args) {
@@ -10,13 +9,19 @@ public class TestePinos {
         frame.setSize(300, 200);
 
         JPanel panel = new JPanel(new FlowLayout());
-        for (Color color : new Color[]{Color.RED, Color.YELLOW, Color.BLUE, Color.GREEN, Color.MAGENTA, Color.ORANGE}) {
-            Pinos button = new Pinos("");
-            button.setBackground(color);
-            panel.add(button);
+        PinoColorido[] pinos = new PinoColorido[4];
+        pinos[0] = PinoColorido.criaPinoColorido("BLUE");
+        pinos[1] = PinoColorido.criaPinoColorido("GREEN");
+        pinos[2] = PinoColorido.criaPinoColorido("RED");
+        pinos[3] = PinoColorido.criaPinoColorido("YELLOW");
+
+        for(int i = 0; i < 4; i++) {
+            // Adiciona o pino ao painel, que é o container
+            panel.add(pinos[i]);
         }
 
         frame.add(panel);
         frame.setVisible(true);
     }
 }
+
