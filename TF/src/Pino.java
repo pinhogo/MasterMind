@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Shape;
@@ -36,7 +37,7 @@ public abstract class Pino extends JButton {
 
     @Override
     protected void paintBorder(Graphics g) {
-        g.setColor(getForeground());
+        g.setColor(Color.BLACK);
         g.drawOval(0, 0, getSize().width - 1, getSize().height - 1);
     }
 
@@ -47,4 +48,6 @@ public abstract class Pino extends JButton {
         }
         return shape.contains(x, y);
     }
+
+    //public abstract void acaoDoBotao(ActionEvent e);
 }

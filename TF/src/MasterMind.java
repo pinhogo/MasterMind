@@ -5,11 +5,11 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.*;
 
+
 public class MasterMind extends JFrame {
     private JTextField[][] attemptFields;
     private JTextField[] feedbackFields;
     private JTextField scoreField;
-    private String[] colors = { "RED", "GREEN", "YELLOW", "BLUE", "MAGENTA", "ORANGE", "GRAY", "PINK" };
     private Color[] secretCode;
     private int currentAttempt;
 
@@ -33,12 +33,11 @@ public class MasterMind extends JFrame {
             JPanel row = new JPanel(new GridLayout(1, 4));
             for (int j = 0; j < 4; j++) {
                 attemptFields[i][j] = new JTextField();
-                attemptFields[i][j].setEditable(false);
-                attemptFields[i][j].setTransferHandler(new TransferHandler("background"));
+                attemptFields[i][j].setTransferHandler(new TransferHandler("cor"));
                 row.add(attemptFields[i][j]);
 
-                int rowIdx = i;
-                int colIdx = j;
+                // int rowIdx = i;
+                // int colIdx = j;
                 attemptFields[i][j].addMouseListener(new MouseAdapter() {
                     @Override
                     public void mousePressed(MouseEvent evt) {

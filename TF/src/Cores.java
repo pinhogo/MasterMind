@@ -23,6 +23,7 @@ public class Cores {
         cores.put("ORANGE",new Cor("ORANGE",Color.ORANGE));
         cores.put("GRAY",new Cor("GRAY",Color.GRAY));
         cores.put("PINK",new Cor("PINK",Color.PINK));
+        cores.put("CYAN",new Cor("CYAN", Color.CYAN));
     }
 
     public Cor getCor(String key){
