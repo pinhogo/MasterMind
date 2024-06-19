@@ -67,28 +67,7 @@ public class MasterMind extends JFrame {
         JPanel bottomPanel = new JPanel(new BorderLayout());
 
         // Painel de botões coloridos
-        JPanel colorPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        for (String color : colors) {
-        //for (int i = 0; i < 4; i++) {
-            
-            PinoColorido pinos = new PinoColorido(Cores.getInstance().getCor(color));
-            //Pinos colorButton = new Pinos("");
-            //pinos[i] = PinoColorido.criaPinoColorido(color);
-            // colorButton.setBackground(color);
-            // colorButton.setPreferredSize(new Dimension(50, 50));
-            colorPanel.add(pinos);
-
-            // Adiciona funcionalidade de arrastar e soltar aos botões
-            pinos.setTransferHandler(new TransferHandler("background"));
-            pinos.addMouseListener(new MouseAdapter() {
-                @Override
-                public void mousePressed(MouseEvent evt) {
-                    JComponent comp = (JComponent) evt.getSource();
-                    TransferHandler handler = comp.getTransferHandler();
-                    handler.exportAsDrag(comp, evt, TransferHandler.COPY);
-                }
-            });
-        }
+        Choices choices = new Choices(4);
 
         // Campo de pontuação
         JPanel scorePanel = new JPanel(new FlowLayout());
@@ -97,7 +76,7 @@ public class MasterMind extends JFrame {
         scoreField.setEditable(false);
         scorePanel.add(scoreField);
 
-        bottomPanel.add(colorPanel, BorderLayout.NORTH);
+        bottomPanel.add(choices.getPanel(), BorderLayout.NORTH);
         bottomPanel.add(scorePanel, BorderLayout.SOUTH);
 
         // Botão de configuração

@@ -17,22 +17,39 @@ public final class Choices{
         panel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         for (int i = 0; i < qntdPinos; i++) {
             pinos[i] = PinoColorido.criaPinoColorido(colors[i]);
+            pinos[i].setTransferHandler(new TransferHandler("cor"));
             panel.add(pinos[i]);   
-            
-            DragDrop();
         }
+        DragDrop();
+    }
+
+    public JPanel getPanel(){
+        return panel;
     }
 
     public void DragDrop(){
-        for(int i = 0; i < qntdPinos; i++) {
-            pinos[i].addMouseListener(new MouseAdapter() {
+        for(PinoColorido pino : pinos) {
+            pino.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mousePressed(MouseEvent evt) {
                     JComponent comp = (JComponent) evt.getSource();
                     TransferHandler handler = comp.getTransferHandler();
-                    handler.exportAsDrag(comp, evt, TransferHandler.COPY);
+                    if (handler != null) {
+                        handler.exportAsDrag(comp, evt, TransferHandler.COPY);
+                    }
                 }
             });
         }
     }
+
+    // public static void main(String[] args) {
+    //     // Cria uma janela para testar a funcionalidade
+    //     javax.swing.JFrame frame = new javax.swing.JFrame("Drag and Drop Example");
+    //     frame.setDefaultCloseOperation(javax.swing.JFrame.EXIT_ON_CLOSE);
+    //     frame.setSize(400, 200);
+
+    //     Choices choices = new Choices(6);
+    //     frame.add(choices.getPanel());
+    //     frame.setVisible(true);
+    // }
 }
