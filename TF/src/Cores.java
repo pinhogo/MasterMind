@@ -29,19 +29,4 @@ public class Cores {
         return cores.get(key);
     }
 
-    public Cor proximaCor(String key){
-        String[] seqCores = new String[cores.keySet().size()];
-        seqCores = cores.keySet().toArray(seqCores);
-        String novaCor = "";
-        for(int i=0;i<seqCores.length;i++){
-            if (seqCores[i].equals(key)){
-                if (i<seqCores.length-1){
-                    novaCor = seqCores[i+1];
-                }else{
-                    novaCor = seqCores[0];
-                }
-            }
-        }
-        return cores.get(novaCor);
-    }
 }
