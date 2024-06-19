@@ -15,21 +15,41 @@ public class PinoPB extends Pino{
         this.setTransferHandler(new TransferHandler("background"));
     }
 
-    public static PinoPB criaPinoPreto(){
+    public static PinoPB criaPinoPreto(){ // cor certa na posicao certa
         return new PinoPB(new Cor("BLACK",Color.BLACK));
     }
 
-    public static PinoPB criaPinoBranco(){
+    public static PinoPB criaPinoBranco(){ // cor certa na posicao errada
         return new PinoPB(new Cor("WHITE",Color.WHITE));
     }
 
     public static PinoPB criaPinoVazio(){
-        return new PinoPB(new Cor("GRAY",Color.WHITE));
+        return new PinoPB(new Cor("GRAY",Color.GRAY));
     }
 
     public void setCor(Color cor) {
         this.cor = cor;
         this.setBackground(cor);
     }
+
+    // @Override
+    // protected void paintComponent(Graphics g) {
+    //     super.paintComponent(g);
+    //     Graphics2D g2d = (Graphics2D) g.create();
+    //     g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+    //     int diameter = Math.min(getWidth(), getHeight());
+    //     int x = (getWidth() - diameter) / 2;
+    //     int y = (getHeight() - diameter) / 2;
+
+    //     // Desenha o círculo preenchido com a cor atual
+    //     g2d.setColor(cor);
+    //     g2d.fillOval(x, y, diameter, diameter);
+
+    //     // Desenha a borda do círculo
+    //     g2d.setColor(Color.BLACK);
+    //     g2d.drawOval(x, y, diameter, diameter);
+
+    //     g2d.dispose();
+    // }
 
 }

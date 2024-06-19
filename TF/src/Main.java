@@ -6,11 +6,11 @@ public class Main {
         // Cria uma janela para testar a funcionalidade
         JFrame frame = new JFrame("Drag and Drop Example");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(800, 400);
+        frame.setSize(800, 600);
         frame.setLayout(new GridLayout(3, 1));
 
-        Senha senha = new Senha(6);
-        Attempts attempts = new Attempts(6);
+        Senha senha = new Senha(4);
+        Attempts attempts = new Attempts(4);
         Clues clues = new Clues(senha, attempts);
 
         frame.add(senha.getPanel());
