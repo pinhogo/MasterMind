@@ -13,7 +13,7 @@ public final class Choices{
 
     public Choices(int qntdPinos){
         pinos = new PinoColorido[qntdPinos];
-        panel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        panel = new JPanel(new FlowLayout(FlowLayout.LEADING));
         for (int i = 0; i < qntdPinos; i++) {
             pinos[i] = PinoColorido.criaPinoColorido(colors[i]);
             pinos[i].setTransferHandler(new TransferHandler("background"));
