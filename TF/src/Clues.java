@@ -6,7 +6,7 @@ public class Clues {
     private final Senha senha;
     private final Attempts attempts;
     private final JPanel panel;
-    private final JButton verificarButton;
+    public final JButton verificarButton;
     private int correctPositionAndColor;
 
     public Clues(Senha senha, Attempts attempts) {
@@ -15,15 +15,15 @@ public class Clues {
         this.attempts = attempts;
         this.panel = new JPanel(new FlowLayout());
         this.verificarButton = new JButton("Verificar");
-        
+        this.verificarButton.setEnabled(false);
 
         // Adicionando o botão verificar ao painel
         panel.add(verificarButton);
 
         // Adicionando ActionListener ao botão para executar a função verificar quando clicado
-        verificarButton.addActionListener((ActionEvent e) -> {
+/*        verificarButton.addActionListener((ActionEvent e) -> {
             verificar();
-        });
+        });*/
     }
 
     public void verificar() {

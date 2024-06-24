@@ -1,5 +1,6 @@
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import javax.swing.*;
 
 public class Tabu extends JPanel {
@@ -8,7 +9,9 @@ public class Tabu extends JPanel {
     private final Attempts[] Tentativas;
     private final Clues[] Dicas;
     private final Senha pass;
-    
+    private int linhaAtual = 0;
+
+
     public Tabu(Dificuldade dificuldade) {
         Tentativas = new Attempts[dificuldade.getTentativas()];
         Dicas = new Clues[dificuldade.getTentativas()];
@@ -25,8 +28,15 @@ public class Tabu extends JPanel {
         for (int i = 0; i < dificuldade.getTentativas(); i++) {
             Tentativas[i] = new Attempts(dificuldade.getPinos());
             pTentativas.add(Tentativas[i].getPanel());
-            Dicas[i] = new Clues(pass,Tentativas[i]);
+            Dicas[i] = new Clues(pass, Tentativas[i]);
+            int finalI = i;
+            Dicas[i].verificarButton.addActionListener((ActionEvent e) -> {
+                Dicas[finalI].verificar();
+                linhaAtual++;
+                Dicas[Dicas.length - 1 - linhaAtual].verificarButton.setEnabled(true);
+            });
             pDicas.add(Dicas[i].getPanel());
         }
+        Dicas[Dicas.length - 1].verificarButton.setEnabled(true);
     }
 }

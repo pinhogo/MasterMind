@@ -17,6 +17,7 @@ public abstract class Pino extends JButton {
         setFocusPainted(false);
         setBorderPainted(false);
         setPreferredSize(new Dimension(50, 50));
+        this.setEnabled(false);
     }
 
     public Cor getCor(){
