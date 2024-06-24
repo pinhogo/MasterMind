@@ -6,6 +6,7 @@ import javax.swing.TransferHandler;
 public class Attempts {
     private final JPanel panel;
     private final PinoPB[] vazio;
+    
     //private final String[] cor = {"RED", "GREEN", "YELLOW", "BLUE", "MAGENTA", "ORANGE"};
 
     public Attempts(int qntdPinos) {
@@ -39,5 +40,5 @@ public class Attempts {
             pino.setTransferHandler(new TransferHandler("background"));
         }
     }
-    
+
 }

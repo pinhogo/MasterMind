@@ -17,7 +17,8 @@ public class Main {
                 // Testando com dificuldade MÉDIO
                 Dificuldade dificuldade = Dificuldade.MEDIO;
                 Tabu tabuleiro = new Tabu(dificuldade);
-                Choices Controle = new Choices(dificuldade.getCores());
+                Choices Controle = new Choices(8);
+                
 
                 
 

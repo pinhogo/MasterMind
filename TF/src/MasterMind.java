@@ -18,7 +18,7 @@ public class MasterMind extends JFrame {
         setLocationRelativeTo(null);
 
         Password = new Senha(pinos);
-        //add(Password.getPanel(), BorderLayout.NORTH);
+        add(Password.getPanel(), BorderLayout.CENTER);
 
         Controle = new Choices(cores);
         add(Controle.getPanel(), BorderLayout.SOUTH);
@@ -28,10 +28,6 @@ public class MasterMind extends JFrame {
 
         Dicas = new Clues(Password, Tentativas);
         add(Dicas.getPanel(), BorderLayout.NORTH);
-
-        for (PinoPB pino : Tentativas.getPinos()) {
-            pino.addPropertyChangeListener("background", evt -> Dicas.verificar());
-        }
     }
 
   
