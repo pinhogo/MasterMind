@@ -1,5 +1,4 @@
 import java.awt.FlowLayout;
-import java.awt.GridLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JComponent;
@@ -14,6 +13,8 @@ public final class Choices{
     public Choices(int qntdPinos){
         pinos = new PinoColorido[qntdPinos];
         panel = new JPanel(new FlowLayout(FlowLayout.LEADING));
+        
+
         for (int i = 0; i < qntdPinos; i++) {
             pinos[i] = PinoColorido.criaPinoColorido(colors[i]);
             pinos[i].setTransferHandler(new TransferHandler("background"));
@@ -39,18 +40,5 @@ public final class Choices{
                 }
             });
         }
-    }
-
-    public static void main(String[] args) {
-        // Cria uma janela para testar a funcionalidade
-        javax.swing.JFrame frame = new javax.swing.JFrame("Drag and Drop Example");
-        frame.setDefaultCloseOperation(javax.swing.JFrame.EXIT_ON_CLOSE);
-        frame.setSize(400, 200);
-        frame.setLayout(new GridLayout(1,2));
-        Choices choices = new Choices(6);
-        Attempts attempts = new Attempts(6);
-        frame.add(choices.getPanel());
-        frame.add(attempts.getPanel());
-        frame.setVisible(true);
     }
 }

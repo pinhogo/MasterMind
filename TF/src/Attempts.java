@@ -6,10 +6,15 @@ import javax.swing.TransferHandler;
 public class Attempts {
     private final JPanel panel;
     private final PinoPB[] vazio;
+    private final int qntdPinos;
 
     public Attempts(int qntdPinos) {
         vazio = new PinoPB[qntdPinos];
         panel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        this.qntdPinos = qntdPinos; 
+    }
+
+    public void Ativar(){
         panel.setTransferHandler(new ColorTransferHandler() {
             @Override
             public int getSourceActions(JComponent c) { // apenas recebe o drop
@@ -24,6 +29,7 @@ public class Attempts {
 
         Drop();
     }
+    
 
     public JPanel getPanel() {
         return panel;
@@ -44,5 +50,5 @@ public class Attempts {
             pino.setTransferHandler(null);
         }
     }
-
 }
+

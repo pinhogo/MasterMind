@@ -9,7 +9,7 @@ public class Main {
             public void run() {
                 JFrame frame = new JFrame("Teste Tabuleiro");
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                frame.setSize(400, 700);
+                frame.setSize(600, 700);
                 frame.setLayout(new BorderLayout());
 
                 // Testando com dificuldade MÉDIO
@@ -18,8 +18,10 @@ public class Main {
                 Choices Controle = new Choices(8);
             
                 frame.add(tabuleiro, BorderLayout.WEST);
+                frame.add(tabuleiro.pass.getPanel(), BorderLayout.EAST);
                 frame.add(Controle.getPanel(), BorderLayout.SOUTH);
                 frame.setVisible(true);
+                frame.setLocationRelativeTo(null);
             }
         });
     }

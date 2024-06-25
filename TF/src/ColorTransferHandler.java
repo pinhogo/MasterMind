@@ -17,7 +17,7 @@ class ColorTransferHandler extends TransferHandler {
 
     @Override
     public int getSourceActions(JComponent c) {
-        return COPY;
+        return MOVE;
     }
 
     @Override
@@ -41,6 +41,11 @@ class ColorTransferHandler extends TransferHandler {
             e.printStackTrace();
         }
         return false;
+    }
+
+    @Override
+    protected void exportDone(JComponent source, Transferable data, int action) {
+        // Implemente este método para remover a cor do pino de origem após a operação de movimento
     }
 
     private static class ColorTransferable implements Transferable {

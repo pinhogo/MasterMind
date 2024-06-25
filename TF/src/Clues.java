@@ -113,8 +113,6 @@ public class Clues {
         return correctPositionAndColor == senha.getPinos().length;
     }
 
-    
-
     public int getPinosPretos() {
         return correctPositionAndColor;
     }
