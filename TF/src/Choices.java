@@ -1,4 +1,3 @@
-import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -6,14 +5,19 @@ import javax.swing.JComponent;
 import javax.swing.JPanel;
 import javax.swing.TransferHandler;
 
-public final class Choices{
-    private final PinoColorido[] pinos;
-    private final String[] colors = {"RED", "GREEN", "YELLOW", "BLUE", "MAGENTA", "ORANGE", "PINK", "CYAN"};
-    private final JPanel panel;
+public class Choices extends ConjuntoPinos{
+    // protected final PinoColorido[] pinos;
+    // protected final String[] colors = {"RED", "GREEN", "YELLOW", "BLUE", "MAGENTA", "ORANGE", "PINK", "CYAN"};
+    // protected final JPanel panel;
+    // protected final int qntdPinos;
 
     public Choices(int qntdPinos){
-        pinos = new PinoColorido[qntdPinos];
-        panel = new JPanel(new FlowLayout(FlowLayout.LEADING));
+        super(qntdPinos);
+
+        CriarPinos();
+    }
+
+    public void CriarPinos(){
         for (int i = 0; i < qntdPinos; i++) {
             pinos[i] = PinoColorido.criaPinoColorido(colors[i]);
             pinos[i].setTransferHandler(new TransferHandler("background"));
@@ -22,6 +26,7 @@ public final class Choices{
         Drag();
     }
 
+    @Override
     public JPanel getPanel(){
         return panel;
     }
