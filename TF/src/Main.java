@@ -12,16 +12,11 @@ public class Main {
                 frame.setSize(400, 700);
                 frame.setLayout(new BorderLayout());
 
-                
-        
                 // Testando com dificuldade MÉDIO
                 Dificuldade dificuldade = Dificuldade.MEDIO;
-                Tabu tabuleiro = new Tabu(dificuldade);
+                Tabuleiro tabuleiro = new Tabuleiro(dificuldade);
                 Choices Controle = new Choices(8);
-                
-
-                
-
+            
                 frame.add(tabuleiro, BorderLayout.WEST);
                 frame.add(Controle.getPanel(), BorderLayout.SOUTH);
                 frame.setVisible(true);
