@@ -3,7 +3,6 @@ public class PinoColorido extends Pino{
 
     protected PinoColorido(Cor cor) {
         super(cor);
-        //setTransferHandler(new ColorTransferHandler());
     }
 
     public static PinoColorido criaPinoColorido(String nomeCor){
@@ -13,4 +12,5 @@ public class PinoColorido extends Pino{
         }
         return new PinoColorido(cor);
     }
+
 }

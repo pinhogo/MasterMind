@@ -29,6 +29,11 @@ public abstract class Pino extends JButton {
         this.setForeground(cor.getCor());
         this.setBackground(cor.getCor());
     }
+
+    public String getNomeCor(){
+        return cor.getNomeCor();
+    }
+    
     @Override
     protected void paintComponent(Graphics g) {
         g.setColor(getBackground());

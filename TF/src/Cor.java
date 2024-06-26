@@ -16,9 +16,4 @@ public class Cor {
     public Color getCor() {
         return cor;
     }
-
-    @Override
-    public String toString(){
-        return getNomeCor();
-    }
 }

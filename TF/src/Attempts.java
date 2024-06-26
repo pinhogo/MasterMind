@@ -14,9 +14,7 @@ public class Attempts {
         vazio = new PinoPB[qntdPinos];
         panel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         this.qntdPinos = qntdPinos;
-
         //CriarPinos();
-
     }
 
     public void CriarPinos() {
@@ -31,7 +29,6 @@ public class Attempts {
             vazio[i].setTransferHandler(new TransferHandler("cor"));
             panel.add(vazio[i]);
         }
-
         Drop();
     }
 
@@ -54,5 +51,4 @@ public class Attempts {
             pino.setTransferHandler(null);
         }
     }
-
 }

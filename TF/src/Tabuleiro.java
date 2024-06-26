@@ -11,6 +11,7 @@ public class Tabuleiro extends JPanel {
     private final Attempts[] Tentativas;
     private final Clues[] Dicas;
     public final Senha pass;
+    public final Choices Controle;
     private int linhaAtual = 0;
     private int count = 0;
 
@@ -20,6 +21,10 @@ public class Tabuleiro extends JPanel {
         Tentativas = new Attempts[dificuldade.getTentativas()];
         Dicas = new Clues[dificuldade.getTentativas()];
         pass = new Senha(dificuldade.getPinos());
+        this.Controle = new Choices(dificuldade.getCores());    
+        Controle.CriarPinos(pass.getColors());
+        
+
         score = 1000;
         setLayout(new BorderLayout());
 
@@ -41,6 +46,7 @@ public class Tabuleiro extends JPanel {
         add(pTentativas, BorderLayout.WEST);
         add(pDicas, BorderLayout.EAST);
         add(scoreLabel, BorderLayout.NORTH);
+        add(Controle.getPanel(), BorderLayout.SOUTH);
 
         for (int i = 0; i < dificuldade.getTentativas(); i++) {
             Tentativas[i] = new Attempts(dificuldade.getPinos());
