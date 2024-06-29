@@ -1,4 +1,5 @@
 
+import java.awt.GridLayout;
 import javax.swing.JPanel;
 
 public class Senha extends ConjuntoPinos {
@@ -37,19 +38,23 @@ public class Senha extends ConjuntoPinos {
         return qntdPinos;
     }
 
+    @Override
+    public String[] getColors() {
+        return colors;
+    }
     //  	                                                <<<<<<TESTESSS>>>>
-    // public static void main(String[] args) {
-    //     //Cria uma janela para testar a funcionalidade
-    //     Senha choices = new Senha(4);
-    //     for(int i = 0; i < choices.getQntdPinos(); i++){
-    //         System.out.println(choices.getColors()[i]);
-    //     }
-    //     javax.swing.JFrame frame = new javax.swing.JFrame("Drag and Drop Example");
-    //     frame.setDefaultCloseOperation(javax.swing.JFrame.EXIT_ON_CLOSE);
-    //     frame.setSize(400, 200);
-    //     frame.setLayout(new GridLayout(1,2));
-    //     //Senha choices = new Senha(6);
-    //     frame.add(choices.getPanel());
-    //     frame.setVisible(true);
-    // }
+    public static void main(String[] args) {
+        //Cria uma janela para testar a funcionalidade
+        Senha choices = new Senha(4);
+        for(int i = 0; i < choices.getQntdPinos(); i++){
+            System.out.println(choices.getColors()[i]);
+        }
+        javax.swing.JFrame frame = new javax.swing.JFrame("Drag and Drop Example");
+        frame.setDefaultCloseOperation(javax.swing.JFrame.EXIT_ON_CLOSE);
+        frame.setSize(400, 200);
+        frame.setLayout(new GridLayout(1,2));
+        //Senha choices = new Senha(6);
+        frame.add(choices.getPanel());
+        frame.setVisible(true);
+    }
 }

@@ -20,7 +20,7 @@ public class Tabuleiro extends JPanel {
         scoreLabel = new JLabel("Pontuação: " + score);
         Tentativas = new Attempts[dificuldade.getTentativas()];
         Dicas = new Clues[dificuldade.getTentativas()];
-        pass = new Senha(dificuldade.getPinos());
+        pass = new Senha(dificuldade.getCores());
         this.Controle = new Choices(dificuldade.getCores());    
         Controle.CriarPinos(pass.getColors());
         

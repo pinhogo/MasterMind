@@ -85,12 +85,9 @@ class TabuleiroFrame extends JFrame {
         setLayout(new BorderLayout());
 
         Tabuleiro tabuleiro = new Tabuleiro(dificuldade);
-        // Choices Controle = new Choices(dificuldade.getCores());
-        // Controle.CriarPinos(tabuleiro.pass.getColors());
 
         add(tabuleiro, BorderLayout.WEST);
-        add(tabuleiro.pass.getPanel(), BorderLayout.EAST);
-        // frame.add(Controle.getPanel(), BorderLayout.SOUTH);
+        //add(tabuleiro.pass.getPanel(), BorderLayout.EAST);
         setLocationRelativeTo(null);
     }
 }

@@ -1,3 +1,4 @@
+
 import java.awt.FlowLayout;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -8,7 +9,7 @@ import javax.swing.JPanel;
 public abstract class ConjuntoPinos {
 
     public final PinoColorido[] pinos;
-    public final String[] colors;
+    public String[] colors;
     public final JPanel panel;
     public final int qntdPinos;
 
@@ -27,6 +28,10 @@ public abstract class ConjuntoPinos {
         return this.colors;
     }
 
+    public void setColors(String[] colors) {
+        this.colors = colors;
+    }
+
     public JPanel getPanel() {
         return this.panel;
     }
@@ -36,12 +41,14 @@ public abstract class ConjuntoPinos {
     }
 
     public String[] GerarSenha() {
-        String[] password = new String[qntdPinos];
-        List<String> cSenha = new ArrayList<>(Arrays.asList(colors));
+        String[] password = Arrays.copyOfRange(colors, 0, qntdPinos);
+        List<String> cSenha = new ArrayList<>(Arrays.asList(password));
         Collections.shuffle(cSenha); // Embaralha as cores
+        
         for (int i = 0; i < qntdPinos; i++) {
             password[i] = cSenha.get(i);
         }
-        return password;
+        setColors(password);
+        return getColors();
     }
 }

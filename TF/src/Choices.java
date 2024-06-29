@@ -1,6 +1,10 @@
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Random;
 import javax.swing.JComponent;
 import javax.swing.JPanel;
 import javax.swing.TransferHandler;
@@ -13,9 +17,8 @@ public class Choices extends ConjuntoPinos {
 
     public Choices(int qntdPinos) {
 
-            super(qntdPinos);
-            
-        
+        super(qntdPinos);
+
         //CriarPinos();
     }
 
@@ -29,7 +32,7 @@ public class Choices extends ConjuntoPinos {
     // }
     public void CriarPinos(String[] cores) {
 
-        //cores = EmbaralharSenha(cores);
+        cores = Embaralhar(cores);
 
         for (int i = 0; i < qntdPinos; i++) {
             pinos[i] = PinoColorido.criaPinoColorido(cores[i]);
@@ -59,12 +62,27 @@ public class Choices extends ConjuntoPinos {
         }
     }
 
+   public String[] Embaralhar(String[] corex) {
+        Random random = new Random();
+        List<String> tempList = new ArrayList<>();
+        Collections.addAll(tempList, corex); // Copia o array para uma lista mutável
+
+        int tamanhoOriginal = tempList.size();
+        List<String> resultado = new ArrayList<>();
+
+        for (int i = 0; i < tamanhoOriginal; i++) {
+            int randomIndex = random.nextInt(tempList.size());
+            resultado.add(tempList.remove(randomIndex));
+        }
+
+        return resultado.toArray(new String[0]);
+    }
+
     // public String[] EmbaralharSenha(String[] str) {
     //     List<String> strList = Arrays.asList(str);
     //     Collections.shuffle(strList);
     //     return strList.subList(0, qntdPinos).toArray(new String[0]);
     // }
-
     // public static void main(String[] args) {
     //     // Cria uma janela para testar a funcionalidade
     //     javax.swing.JFrame frame = new javax.swing.JFrame("Drag and Drop Example");
